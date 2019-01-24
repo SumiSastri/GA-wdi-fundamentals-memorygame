@@ -29,10 +29,10 @@ var cardsInPlay =[];
     for (var i = 0; i < cards.length; i ++) {
         // still in the loop for each card create new image element
     var cardElement = document.createElement('img');
-       // add back of card to the card element
-    cardElement.setAttribute(img src="MemoryGameImages/back.png");
-       // identify the card in the array with i starting point of the loop
-    cardElement.setAttribute(data-id[i]);
+       // add src attribute as back of card 
+    cardElement.setAttribute("src", "MemoryGameImages/back.png");
+       // add data-id attribute as i no punctuation
+    cardElement.setAttribute(data-id, i);
       // Add event listener and call flipCard function
       // syntax jogger button.addEventListener('click', alertUser);
     cardElement.addEventListener("click", flipCard);
@@ -42,31 +42,43 @@ var cardsInPlay =[];
 }
 };
 
+
 var checkForMatch = function() {
     cardsInPlay[0].rank === cardsInPlay[1].rank?
     alert("You found a match"):
     alert("Sorry,try again.");
-    }
+    }   
+
 // Remove cardID param
 // Create new var cardId get this.dataId
 // Before if statement set this.img
 
+
+
 var flipCard = function () {
-         var cardId =  this.getAttribute(dataId[i]);
+    
+         var cardId =  this.getAttribute(data-id, i);
          cardsInPlay.push(cards[cardId].rank);
-         this.setAttribute =("src",=cards[cardId]);
+         this.setAttribute("src", cards[cardId].cardImage);
+    
     if (cardsInPlay.length === 2); 
        {checkForMatch();  
+
+
         console.log("User flipped" + " " + cards[cardId].rank);
         console.log("User flipped" + " " + cards[cardId].suit);
         console.log("User flipped" + " " + cards[cardId].cardImage);
     }
 };
-
-//Remove flipcard add createBoard
     createBoard();
 
+//Remove flipcard add createBoard
+/* this memory jog
+document.querySelector('.circle').addEventListener('click', turnRed)
 
+var turnRed = function () {
+    this.style.backgroundColor = "red";
+}; */
 
 /* PROJECT OBJECTS - code running ok up to here
 
