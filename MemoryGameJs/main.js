@@ -1,105 +1,116 @@
-
-//PROJECT: Make game interactive
-
+// Make game interactive - final
 var cards = [
-{
-    rank: "queen",
+{   rank: "queen",
     suit: "hearts",
-    cardImage: "MemoryGameImages/queen-of-hearts.png",
+    cardImage: "MemoryGameImages/queen-of-hearts.png"
 },
-    {
-    rank: "queen",
+
+{   rank: "queen",
     suit: "diamonds",
-    cardImage: "MemoryGameImages/queen-of-diamonds.png",
+    cardImage: "MemoryGameImages/queen-of-diamonds.png"
 },  
     
 {   rank: "king",
     suit: "hearts",
-    cardImage: "MemoryGameImages/king-of-hearts.png",
+    cardImage: "MemoryGameImages/king-of-hearts.png"
 },  
 
-{
-    rank: "king",
+{   rank: "king",
     suit: "diamonds",
-    cardImage: "MemoryGameImages/king-of-diamonds.png",
-},
+    cardImage: "MemoryGameImages/king-of-diamonds.png"
+}
 ];
+
 var cardsInPlay =[];
 
-var checkForMatch = function () {
-    cardsInPlay[0] === cardsInPlay[2] ||
-    cardsInPlay[1] === cardsInPlay[3] ?
-    alert("You found a match"):
-    alert("Sorry,try again.");
-    };
-
-var flipCard = function (cardId) {
-    If (cardsInPlay.length === 2); 
-    checkForMatch();
-    cardsInPlay.push(cards[cardId]);
-    console.log("User flipped" + cards[cardId].rank);
-    console.log("User flipped" + cards[cardId].suit);
-    console.log("User flipped" + cards[cardId].Image);
-    };
-    
-// Step 1 create new function board - panel that runs the game
+// declare createBoard function
  var createBoard = function () {
- 
- //Get DOM element by Tag name & set attribute from image to data  
-    var cardElement = document.getElementByTagName("img")[0].setAttribute("img", "data-id" i)
-// Add event listener   
-    cardElement.addEventListener("click", flipCard);
 //run for loop
-    for (var i = 0; i < cards.length; i ++ {
-console.log("User flipped" + " " + "cards[cardId].rank]");
-
-// Append child - board to parent - div
-  document.getElementsByTagName(div.gameBoard)[0].appendChild(cardElement)
+    for (var i = 0; i < cards.length; i ++) {
+        // still in the loop for each card create new image element
+    var cardElement = document.createElement('img');
+       // add back of card to the card element
+    cardElement.setAttribute(img src="MemoryGameImages/back.png");
+       // identify the card in the array with i starting point of the loop
+    cardElement.setAttribute(data-id[i]);
+      // Add event listener and call flipCard function
+      // syntax jogger button.addEventListener('click', alertUser);
+    cardElement.addEventListener("click", flipCard);
+     /* Append card element as last part of for loop
+     document.getElementById('special') */
+    document.getElementById("game-board")[0].appendChild(cardElement);
+}
 };
 
+var checkForMatch = function() {
+    cardsInPlay[0].rank === cardsInPlay[1].rank?
+    alert("You found a match"):
+    alert("Sorry,try again.");
+    }
+// Remove cardID param
+// Create new var cardId get this.dataId
+// Before if statement set this.img
+
+var flipCard = function () {
+         var cardId =  this.getAttribute(dataId[i]);
+         cardsInPlay.push(cards[cardId].rank);
+         this.setAttribute =("src",=cards[cardId]);
+    if (cardsInPlay.length === 2); 
+       {checkForMatch();  
+        console.log("User flipped" + " " + cards[cardId].rank);
+        console.log("User flipped" + " " + cards[cardId].suit);
+        console.log("User flipped" + " " + cards[cardId].cardImage);
+    }
+};
+
+//Remove flipcard add createBoard
+    createBoard();
 
 
-/* PROJECT OBJECTS
+
+/* PROJECT OBJECTS - code running ok up to here
+
 var cards = [
-{
-    rank: "queen",
+{   rank: "queen",
     suit: "hearts",
-    cardImage: "MemoryGameImages/queen-of-hearts.png",
+    cardImage: "MemoryGameImages/queen-of-hearts.png"
 },
-    {
-    rank: "queen",
+
+{   rank: "queen",
     suit: "diamonds",
-    cardImage: "MemoryGameImages/queen-of-diamonds.png",
+    cardImage: "MemoryGameImages/queen-of-diamonds.png"
 },  
     
 {   rank: "king",
     suit: "hearts",
-    cardImage: "MemoryGameImages/king-of-hearts.png",
+    cardImage: "MemoryGameImages/king-of-hearts.png"
 },  
 
-{
-    rank: "king",
+{   rank: "king",
     suit: "diamonds",
-    cardImage: "MemoryGameImages/king-of-diamonds.png",
-},
+    cardImage: "MemoryGameImages/king-of-diamonds.png"
+}
 ];
+
 var cardsInPlay =[];
 
-var checkForMatch = function () {
-    cardsInPlay[0] === cardsInPlay[2] ||
-    cardsInPlay[1] === cardsInPlay[3] ?
+var checkForMatch = function() {
+    cardsInPlay[0].rank === cardsInPlay[1].rank?
     alert("You found a match"):
     alert("Sorry,try again.");
-    };
+    }
 
-var flipCard = function (cardId) {
-    If (cardsInPlay.length === 2); 
-    checkForMatch();
-    cardsInPlay.push(cards[cardId]);
-    console.log("User flipped" + cards[cardId].rank);
-    console.log("User flipped" + cards[cardId].suit);
-    console.log("User flipped" + cards[cardId].Image);
-    };
+var flipCard = function(cardId) {
+    cardsInPlay.push(cards[cardId].rank);
+    
+    if (cardsInPlay.length === 2); 
+       {checkForMatch();
+        
+        console.log("User flipped" + " " + cards[cardId].rank);
+        console.log("User flipped" + " " + cards[cardId].suit);
+        console.log("User flipped" + " " + cards[cardId].cardImage);
+    }
+};
 
 */
 
@@ -171,9 +182,9 @@ console.log("User flipped" + " " + cardTwo)
 // are cards in play equal to 2 cards?
 
 if (cardsInPlay.length === 2 
-	&& cards[0] === cards[2] 
-	|| cards [1] === cards [3]) 
-	{ alert("You have a match");
+    && cards[0] === cards[2] 
+    || cards [1] === cards [3]) 
+    { alert("You have a match");
 } else {
   alert("Sorry, try again")
 };
